@@ -13,6 +13,7 @@ let heroes: Array<string> = ['Capt', 'Thor', 'Hulk', 10]
 let items: number[] = [1,2,3];
 
 // TS 튜플
+// - 길이 고정, 모든 index에 타입이 지정되어 있는 타입
 let address: [string, number] = ['gangnam', 100];
 
 // TS 객체
