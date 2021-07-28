@@ -4,10 +4,25 @@
  * @property {string} title
  * @property {boolean} done
  */
-let todoItems: Array<{ id: number, title: string, done: boolean}>;
+// 방법 1
+// type Todo = {
+//   id: number, 
+//   title: string, 
+//   done: boolean
+// }; 
+
+// 방법 2
+interface Todo {
+  id: number, 
+  title: string, 
+  done: boolean
+}; 
+
+let todoItems: Array<Todo>;
 
 // api
-function fetchTodoItems(): Array<{ id: number, title: string, done: boolean}> {
+function fetchTodoItems(): Array<Todo
+> {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -22,7 +37,8 @@ function fetchTodos(): Array<object> {
   return todos;
 }
 
-function addTodo(todo: { id: number, title: string, done: boolean}): void {
+function addTodo(todo: Todo
+  ): void {
   todoItems.push(todo);
 }
 
@@ -30,7 +46,8 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: { id: number, title: string, done: boolean}): void {
+function completeTodo(index: number, todo: Todo
+  ): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
