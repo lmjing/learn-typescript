@@ -59,6 +59,7 @@ interface Person {
   age: number;
 }
 
+// extends 를 사용해 인터페이스 확장 - 기존 property 상속 받음
 interface Developer extends Person {
   language: string;
 }
