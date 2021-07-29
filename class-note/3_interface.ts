@@ -13,6 +13,7 @@ var seho: User = {
 function getUser(user: User) {
   console.log(user);
 }
+// User의 모든 property가 정의되어야 함
 const capt = {
   name: '캡틴',
   age: 100
@@ -31,7 +32,7 @@ sum = function(a: number, b: number): number {
 
 // 인덱싱
 interface StringArray {
-  [index: number]: string;
+  [index: number]: string; // 모든 인덱스의 값은 string만 허용한다.
 }
 
 var arr: StringArray = ['a','b','c'];
@@ -46,6 +47,7 @@ var obj: StringRegexDictionary = {
   // sth: /abc/,
   cssFile: /\.css$/,
   jsFile: /\.js$/,
+  // str: 'test' // String 지정 불가; RegExp만 가능
 }
 // obj['cssFile'] = 'a'
 
