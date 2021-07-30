@@ -1,3 +1,10 @@
+enum NumEnum {
+  Zero,
+  One,
+}
+
+console.log(NumEnum.Zero) // 0
+
 enum Shoes {
   Nike = '나이키',
   Adidas = '아디다스'
