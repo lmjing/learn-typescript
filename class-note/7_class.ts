@@ -1,3 +1,4 @@
+// 변수의 접근 범위까지 정의 가능
 class Person {
   private name: string;
   public age: number;
