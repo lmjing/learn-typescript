@@ -1,19 +1,27 @@
+/**
+ * @typedef {object} Item
+ * @property {number} id
+ * @property {string} title
+ * @property {boolean} done
+ */
+// 방법 1
 // type Todo = {
-//   id: number;
-//   title: string;
-//   done: boolean;
-// };
+//   id: number, 
+//   title: string, 
+//   done: boolean
+// }; 
 
+// 방법 2
 interface Todo {
-  id: number;
-  title: string;
-  done: boolean;
-}
+  id: number, 
+  title: string, 
+  done: boolean
+}; 
 
-let todoItems: Todo[];
+let todoItems: Array<Todo>;
 
 // api
-function fetchTodoItems(): Todo[] {
+function fetchTodoItems(): Array<Todo> {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -77,5 +85,5 @@ function log(): void {
 }
 
 todoItems = fetchTodoItems();
-addTwoTodoItems();
+addTwoTodoItems()
 log();

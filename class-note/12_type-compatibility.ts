@@ -52,6 +52,7 @@ var empty2: Empty<number>;
 empty1 = empty2;
 empty2 = empty1;
 
+// 내부 속성 값이 선언되어 호환 불가능
 interface NotEmpty<T> {
   data: T;
 }

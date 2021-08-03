@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // 인터페이스에 제네릭을 선언하는 방법
 interface DropdownItem<T> {
   value: T;
@@ -20,6 +21,9 @@ interface DropdownItem<T> {
 // }
 
 const emails: DropdownItem<string>[] = [
+=======
+const emails = [
+>>>>>>> d48e9e404bab03fad6ad4981100c563a5ebc7d0a
   { value: 'naver.com', selected: true },
   { value: 'gmail.com', selected: false },
   { value: 'hanmail.net', selected: false },
