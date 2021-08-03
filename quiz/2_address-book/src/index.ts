@@ -1,14 +1,4 @@
-interface PhoneNumberDictionary {
-  [phone: string]: {
-    num: number;
-  };
-}
-
-interface Contact {
-  name: string;
-  address: string;
-  phones: PhoneNumberDictionary;
-}
+import { Contact, PhoneType } from './types';
 
 enum PhoneType {
   Home = 'home',
@@ -84,11 +74,16 @@ class AddressBook {
     return this.contacts.filter(contact => contact.address === address);
   }
 
+<<<<<<< HEAD
+  // home, office, studio
+=======
+>>>>>>> d48e9e404bab03fad6ad4981100c563a5ebc7d0a
   findContactByPhone(phoneNumber: number, phoneType: PhoneType): Contact[] {
     return this.contacts.filter(
       contact => contact.phones[phoneType].num === phoneNumber
     );
   }
+  // findContactByPhone('officce');
 
   addContact(contact: Contact): void {
     this.contacts.push(contact);
@@ -103,5 +98,16 @@ class AddressBook {
   }
   /* ------------------------------------------------ */
 }
+
+let div = document.querySelector('.container') as HTMLDivElement;
+div.innerText;
+
+// let heroes = [
+//   { name: 'Tony', age: 30 },
+//   { name: 'Captain', age: 100 },
+// ];
+// heroes.map(function (hero) {
+//   return hero.name;
+// }); // ['Tony', 'Captain']
 
 new AddressBook();

@@ -21,8 +21,7 @@ interface Todo {
 let todoItems: Array<Todo>;
 
 // api
-function fetchTodoItems(): Array<Todo
-> {
+function fetchTodoItems(): Array<Todo> {
   const todos = [
     { id: 1, title: '안녕', done: false },
     { id: 2, title: '타입', done: false },
@@ -32,13 +31,12 @@ function fetchTodoItems(): Array<Todo
 }
 
 // crud methods
-function fetchTodos(): Array<object> {
+function fetchTodos(): object[] {
   const todos = fetchTodoItems();
   return todos;
 }
 
-function addTodo(todo: Todo
-  ): void {
+function addTodo(todo: Todo): void {
   todoItems.push(todo);
 }
 
@@ -46,8 +44,7 @@ function deleteTodo(index: number): void {
   todoItems.splice(index, 1);
 }
 
-function completeTodo(index: number, todo: Todo
-  ): void {
+function completeTodo(index: number, todo: Todo): void {
   todo.done = true;
   todoItems.splice(index, 1, todo);
 }
@@ -57,17 +54,29 @@ function logFirstTodo(): object {
   return todoItems[0];
 }
 
-function showCompleted(): Array<object> {
+function showCompleted(): object[] {
   return todoItems.filter(item => item.done);
+  // return todoItems.filter(function(item) {
+  //   if (item.done) {
+  //     return item;`
+  //   }
+  // });
 }
 
 // TODO: 아래 함수의 내용을 채워보세요. 아래 함수는 `addTodo()` 함수를 이용하여 2개의 새 할 일을 추가하는 함수입니다.
 function addTwoTodoItems(): void {
-  const item1 = { id: 4, title: '안녕4', done: false };
-  const item2 = { id: 5, title: '안녕5', done: false };
-  this.addTodo(item1);
-  this.addTodo(item2);
   // addTodo() 함수를 두 번 호출하여 todoItems에 새 할 일이 2개 추가되어야 합니다.
+  const item1 = {
+    id: 4,
+    title: '아이템 4',
+    done: false,
+  };
+  addTodo(item1);
+  addTodo({
+    id: 5,
+    title: '아이템 5',
+    done: false,
+  });
 }
 
 // NOTE: 유틸 함수
