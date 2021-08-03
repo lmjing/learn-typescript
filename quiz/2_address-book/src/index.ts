@@ -6,6 +6,12 @@ enum PhoneType {
   Studio = 'studio'
 }
 
+enum PhoneType {
+  Home = 'home',
+  Office = 'office',
+  Studio = 'studio'
+}
+
 // api
 // TODO: 아래 함수의 반환 타입을 지정해보세요.
 function fetchContacts(): Promise<Contact[]> {
@@ -74,10 +80,7 @@ class AddressBook {
     return this.contacts.filter(contact => contact.address === address);
   }
 
-<<<<<<< HEAD
   // home, office, studio
-=======
->>>>>>> d48e9e404bab03fad6ad4981100c563a5ebc7d0a
   findContactByPhone(phoneNumber: number, phoneType: PhoneType): Contact[] {
     return this.contacts.filter(
       contact => contact.phones[phoneType].num === phoneNumber
