@@ -1,8 +1,8 @@
 // utils
-function $(selector: string) {
+function $(selector: string): Element {
   return document.querySelector(selector);
 }
-function getUnixTimestamp(date: any) {
+function getUnixTimestamp(date: string | number | Date): number {
   return new Date(date).getTime();
 }
 
@@ -53,8 +53,14 @@ function fetchCovidSummary() {
   return axios.get(url);
 }
 
-function fetchCountryInfo(countryCode: string, status: number) {
-  // params: confirmed, recovered, deaths
+enum CovidStatusCode {
+  Confirmed = 'confirmed',
+  Recovered = 'recovered',
+  Deaths = 'deaths'
+}
+
+function fetchCountryInfo(countryCode: string, status: CovidStatusCode) {
+  // status params: confirmed, recovered, deaths
   const url = `https://api.covid19api.com/country/${countryCode}/status/${status}`;
   return axios.get(url);
 }
@@ -88,14 +94,14 @@ async function handleListClick(event: any) {
   clearRecoveredList();
   startLoadingAnimation();
   isDeathLoading = true;
-  const { data: deathResponse } = await fetchCountryInfo(selectedId, 'deaths');
+  const { data: deathResponse } = await fetchCountryInfo(selectedId, CovidStatusCode.Deaths);
   const { data: recoveredResponse } = await fetchCountryInfo(
     selectedId,
-    'recovered',
+    CovidStatusCode.Recovered
   );
   const { data: confirmedResponse } = await fetchCountryInfo(
     selectedId,
-    'confirmed',
+    CovidStatusCode.Confirmed
   );
   endLoadingAnimation();
   setDeathsList(deathResponse);
