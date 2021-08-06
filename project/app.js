@@ -1,3 +1,5 @@
+// @ts-check
+
 // utils
 function $(selector) {
   return document.querySelector(selector);
@@ -37,6 +39,17 @@ let isDeathLoading = false;
 let isRecoveredLoading = false;
 
 // api
+/**
+ * @typedef {object} CovidSummary
+ * @property {Array<object>} Countries
+ * @property {string} Date
+ * @property {object} Global
+ * @property {string} ID
+ * @property {string} Message
+ */
+/**
+ * @returns {Promise<CovidSummary>}
+ */
 function fetchCovidSummary() {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
