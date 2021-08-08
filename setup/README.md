@@ -74,11 +74,7 @@ node_modules
   "eslint.validate": [
       "javascript",
       "typescript"
-<<<<<<< HEAD
-  ]
-=======
   ],
->>>>>>> d48e9e404bab03fad6ad4981100c563a5ebc7d0a
 }
 ```
 
