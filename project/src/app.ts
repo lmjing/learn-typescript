@@ -4,7 +4,7 @@
 // import {} from "파일 상대 경로";
 
 // type defintion 정의되어 있으면 문제 없음. 단, 대부분 라이브러리가 정의가 되지 않 문제가 발생됨(type defintion 설치 or 정의 필요)
-import axios from 'axios';
+import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
 // utils
 function $(selector: string) {
@@ -56,7 +56,10 @@ const isRecoveredLoading = false;
 /**
  * @returns {Promise<CovidSummary>}
  */
-function fetchCovidSummary() {
+
+import { CovidSummaryResponse } from './covid/index';
+
+function fetchCovidSummary(): Promise<AxiosResponse<CovidSummaryResponse>> {
   const url = 'https://api.covid19api.com/summary';
   return axios.get(url);
 }
