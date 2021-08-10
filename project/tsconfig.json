@@ -1,13 +1,14 @@
 {
-  "compilerOptions": {
-    "allowJs": true,
-    "target": "ES5",
-    "outDir": "./dist",
-    "moduleResolution": "Node",
-    "lib": ["ES2015", "DOM", "DOM.Iterable"],
-    "noImplicitAny": true,
-    "esModuleInterop": true,
-    "typeRoots": ["./node_modules/@types", "./types"]
-  },
-  "include": ["./src/**/*"]
+    "compilerOptions": {
+        "allowJs": true,
+        "target": "ES5",
+        "outDir": "./dist",
+        "moduleResolution": "Node",
+        "lib": ["ES2015", "DOM", "DOM.Iterable"],
+        "noImplicitAny": true,
+        "typeRoots": ["./node_modules/@types", "./types"],
+        "strict": true,
+        "esModuleInterop": true,
+    },
+    "include": ["./src/**/*"]
 }

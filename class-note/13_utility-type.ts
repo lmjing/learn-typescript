@@ -28,6 +28,9 @@ function displayProductDetail(shoppingItem: Pick<Product, 'id' | 'name' | 'price
 
 }
 
+// ETC. Omit - 특정 속성만 제거
+
+// Partial - 모든 속성을 옵셔널로 정의할 수 있음
 // interface UpdateProduct {
 //   id?: number;
 //   name?: string;
@@ -48,11 +51,19 @@ interface UserProfile {
   email: string;
   profilePhotoUrl: string;
 }
+
+// # Partial의 원리 파악 과정
+// type Partial<T> = {
+//   [P in keyof T]?: T[P];
+// };
+
+// # 목표
 // interface UserProfileUpdate {
 //   username?: string;
 //   email?: string;
 //   profilePhotoUrl?: string;
 // }
+
 // #1
 // type UserProfileUpdate = {
 //   username?: UserProfile['username'];
@@ -62,16 +73,17 @@ interface UserProfile {
 
 // #2
 type UserProfileUpdate = {
+  // in: 반복문을 돌며 값을 가져옴
   [p in 'username' | 'email' | 'profilePhotoUrl']?: UserProfile[p]
 }
 type UserProfileKeys = keyof UserProfile
 
-// #3
+// #3 - UserProfile에 국한됨
 type UserProfileUpdate = {
   [p in keyof UserProfile]?: UserProfile[p]
 }
 
-// #4
+// #4 - 제네릭을 활용
 type Subset<T> = {
   [p in keyof T]?: T[p]
 }

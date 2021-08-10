@@ -6,18 +6,21 @@
 
 0. 자바스크립트 파일에 JSDoc으로 타입 시스템 입히기
 1. 타입스크립트의 기본 환경 구성
-   - [x] NPM 초기화
-   - [x] 타입스크립트 라이브러리 설치
-   - [x] 타입스크립트 설정 파일 생성 및 기본 값 추가
-   - [x] 자바스크립트 파일을 타입스크립트 파일로 변환
-   - [x] `tsc` 명령어로 타입스크립트 컴파일 하기
+    - [x] NPM 초기화
+    - [x] 타입스크립트 라이브러리 설치
+    - [x] 타입스크립트 설정 파일 생성 및 기본 값 추가
+    - [x] 자바스크립트 파일을 타입스크립트로 변환
+    - [x] `tsc` 명령어로 타입스크립트 컴파일 하기
 2. 명시적인 `any` 선언하기
-   - `tsconfig.json` 파일에 `noImplicitAny` 값을 `true`로 추가
-   - 가능한한 구체적인 타입으로 타입 정의
+    - `tsconfig.json` 파일에 `noImplictAny` 값을 `true`로 추가
+    - 가능한한 구체적인 타입으로 타입 정의
 3. 프로젝트 환경 구성
-   - babel, eslint, prettier 등의 환경 설정
+    - babel, eslint, prettier 등의 환경 설정
 4. 외부 라이브러리 모듈화
-
+5. `strict` 옵션 추가 후 타입 정의
+6. webpack 모듈 번들러 설정
+    - 타입스크립트를 위한 모듈화(`import`, `export`)진행 시, 모듈 번들러 설정 필수
+    - https://www.inflearn.com/questions/143519
 ## 참고 자료
 
 - [존스 홉킨스 코로나 현황](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6)

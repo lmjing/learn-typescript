@@ -2,6 +2,7 @@ export interface Country {
   Country: string;
   CountryCode: string;
   Date: string;
+  ID: string;
   NewConfirmed: number;
   NewDeaths: number;
   NewRecovered: number;
@@ -13,6 +14,7 @@ export interface Country {
 }
 
 interface Global {
+  Date: string;
   NewConfirmed: number;
   NewDeaths: number;
   NewRecovered: number;
@@ -25,10 +27,11 @@ export interface CovidSummaryResponse {
   Countries: Country[];
   Date: string;
   Global: Global;
+  ID: string;
   Message: string;
 }
 
-export interface CountrySummaryInfo {
+export interface CountryStatusInfo {
   Cases: number;
   City: string;
   CityCode: string;
@@ -41,4 +44,4 @@ export interface CountrySummaryInfo {
   Status: string;
 }
 
-export type CountrySummaryResponse = CountrySummaryInfo[];
+export type CovidCountryStatusResponse = CountryStatusInfo[];
