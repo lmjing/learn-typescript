@@ -7,6 +7,13 @@
 import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
 // utils
+// function $<T extends HTMLElement = HTMLDivElement>(selector: string) {
+//   const element = document.querySelector(selector);
+//   return element as T;
+// }
+// const temp1 = $('#temp1') as HTMLDivElement;
+// const temp2 = $<HTMLOListElement>('#temp2') as HTMLOListElement;
+
 function $(selector: string) {
   return document.querySelector(selector);
 }
