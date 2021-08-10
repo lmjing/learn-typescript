@@ -7,7 +7,7 @@
 import axios, { AxiosResponse } from 'axios';
 import { Chart } from 'chart.js';
 // utils
-function $(selector: string): Element {
+function $(selector: string) {
   return document.querySelector(selector);
 }
 function getUnixTimestamp(date: string | number | Date): number {
@@ -20,9 +20,9 @@ const confirmedTotal = $('.confirmed-total') as HTMLSpanElement;
 const deathsTotal = $('.deaths') as HTMLSpanElement;
 const recoveredTotal = $('.recovered') as HTMLParagraphElement;
 const lastUpdatedTime = $('.last-updated-time') as HTMLParagraphElement;
-const rankList = $('.rank-list');
-const deathsList = $('.deaths-list');
-const recoveredList = $('.recovered-list');
+const rankList = $('.rank-list') as HTMLOListElement;
+const deathsList = $('.deaths-list') as HTMLOListElement;
+const recoveredList = $('.recovered-list') as HTMLOListElement;
 const deathSpinner = createSpinnerElement('deaths-spinner');
 const recoveredSpinner = createSpinnerElement('recovered-spinner');
 
@@ -76,7 +76,7 @@ enum CovidStatusCode {
 }
 
 function fetchCountryInfo(
-  countryCode: string,
+  countryCode: string | undefined,
   status: CovidStatusCode
 ): Promise<AxiosResponse<CovidCountryStatusResponse>> {
   // status params: confirmed, recovered, deaths
@@ -92,16 +92,19 @@ function startApp() {
 
 // events
 function initEvents() {
+  if (!rankList) return;
   rankList.addEventListener('click', handleListClick);
 }
 
-async function handleListClick(event: MouseEvent) {
+async function handleListClick(event: Event) {
   let selectedId;
   if (
     event.target instanceof HTMLParagraphElement ||
     event.target instanceof HTMLSpanElement
   ) {
-    selectedId = event.target.parentElement.id;
+    selectedId = event.target.parentElement
+      ? event.target.parentElement.id
+      : undefined;
   }
   if (event.target instanceof HTMLLIElement) {
     selectedId = event.target.id;
@@ -149,12 +152,12 @@ function setDeathsList(data: CovidCountryStatusResponse) {
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
     li.appendChild(span);
     li.appendChild(p);
-    deathsList.appendChild(li);
+    deathsList!.appendChild(li);
   });
 }
 
 function clearDeathList() {
-  deathsList.innerHTML = null;
+  if (deathsList) deathsList.innerHTML = '';
 }
 
 function setTotalDeathsByCountry(data: CovidCountryStatusResponse) {
@@ -176,12 +179,12 @@ function setRecoveredList(data: CovidCountryStatusResponse) {
     p.textContent = new Date(value.Date).toLocaleDateString().slice(0, -1);
     li.appendChild(span);
     li.appendChild(p);
-    recoveredList.appendChild(li);
+    recoveredList?.appendChild(li);
   });
 }
 
 function clearRecoveredList() {
-  recoveredList.innerHTML = null;
+  recoveredList.innerHTML = '';
 }
 
 function setTotalRecoveredByCountry(data: CovidCountryStatusResponse) {
@@ -213,7 +216,7 @@ function renderChart(data: number[], labels: string[]) {
   // Chart.defaults.font.family = 'Exo 2';
   // Chart.defaults.global.defaultFontColor = '#f5eaea';
   // Chart.defaults.global.defaultFontFamily = 'Exo 2';
-  new Chart(ctx, {
+  new Chart(ctx!, {
     type: 'line',
     data: {
       labels,
