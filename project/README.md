@@ -18,6 +18,9 @@
     - babel, eslint, prettier 등의 환경 설정
 4. 외부 라이브러리 모듈화
 5. `strict` 옵션 추가 후 타입 정의
+6. webpack 모듈 번들러 설정
+    - 타입스크립트를 위한 모듈화(`import`, `export`)진행 시, 모듈 번들러 설정 필수
+    - https://www.inflearn.com/questions/143519
 ## 참고 자료
 
 - [존스 홉킨스 코로나 현황](https://www.arcgis.com/apps/opsdashboard/index.html#/bda7594740fd40299423467b48e9ecf6)
